@@ -56,10 +56,8 @@
       function timeToSeconds(timeStr) {
         const parts = timeStr.split(':').map(Number)
         if (parts.length === 2) {
-          // MM:SS
           return parts[0] * 60 + parts[1]
         } else if (parts.length === 3) {
-          // HH:MM:SS
           return parts[0] * 3600 + parts[1] * 60 + parts[2]
         }
         return null
@@ -91,6 +89,14 @@
         resultDiv.textContent =
           'Adjusted time: ' + secondsToTime(adjustedSeconds)
       }
+
+      document
+        .getElementById('timeInput')
+        .addEventListener('keydown', function (e) {
+          if (e.key === 'Enter') {
+            calculate()
+          }
+        })
     </script>
   </body>
 </html>
